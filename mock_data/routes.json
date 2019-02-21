@@ -1,0 +1,55 @@
+{
+  "routes": [
+    {
+      "path": "/hello",
+      "method": "get",
+      "contents": {
+        "default": {
+          "body": "hello_default.json",
+          "status": 200
+        },
+        "handlers" : [
+          {
+            "content": {
+              "body": "hello_with_header.json",
+              "status": 200
+            },
+            "header": {
+              "X-FOO" : "BAR"
+            }
+          },
+          {
+            "content": {
+              "body": "hello_with_param.json",
+              "status": 200
+            },
+            "param": {
+              "foo" : "bar"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "path": "/hello",
+      "method": "post",
+      "contents": {
+        "default": {
+          "body": "hello_default.json",
+          "status": 200
+        },
+        "handlers" : [
+          {
+            "content": {
+              "body": "hello_with_param.json",
+              "status": 200
+            },
+            "param": {
+              "foo" : "bar"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
